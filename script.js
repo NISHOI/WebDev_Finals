@@ -16,3 +16,19 @@ window.onclick = function(event) {
         closeSidebar();
     }
 }
+
+//  change scetion
+
+function showPage(pageId) {
+    // Hide all sections
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        section.style.display = 'none';
+    });
+    
+    // Show the selected section
+    const selectedSection = document.getElementById(pageId);
+    selectedSection.style.display = 'block';
+}
+
+showPage('page1');
