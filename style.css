@@ -1,6 +1,7 @@
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 body {
     font-family: Arial, sans-serif;
@@ -24,10 +25,14 @@ body {
 .sidebar a {
     padding: 10px 15px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
     color: white;
     display: block;
     transition: 0.3s;
+}
+
+.sidebar a i {
+    margin-right: 10px;
 }
 
 .sidebar a:hover {
@@ -42,9 +47,8 @@ body {
 }
 
 .content {
-    margin-left: 0;
     padding: 16px;
-    transition: margin-left 0.5s;
+    margin-left: 0;
 }
 
 .open-btn {
@@ -54,9 +58,32 @@ body {
     color: white;
     padding: 10px 15px;
     border: none;
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
 }
 
-@media screen and (max-height: 450px) {
-    .sidebar {padding-top: 15px;}
-    .sidebar a {font-size: 18px;}
+h1 {
+    font-size: 24px;
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+        padding-top: 15px;
+    }
+    
+    .sidebar a {
+        font-size: 18px;
+    }
+    
+    .open-btn {
+        font-size: 18px;
+    }
+    
+    h1 {
+        font-size: 20px;
+    }
 }
