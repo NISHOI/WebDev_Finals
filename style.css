@@ -12,7 +12,7 @@ body {
 
 .sidebar {
     height: 100%;
-    width: 250px;
+    width: 350px;
     position: fixed;
     top: 0;
     left: -250px;
@@ -23,7 +23,8 @@ body {
 }
 
 .sidebar a {
-    padding: 10px 15px;
+    padding: 15px;
+    margin-left: 20px;
     text-decoration: none;
     font-size: 20px;
     color: white;
@@ -34,7 +35,11 @@ body {
 .sidebar a i {
     margin-right: 10px;
 }
-
+.sidebar h1{
+    color: white;
+    padding-bottom: 50px;
+    margin-left: 20px;
+}
 .sidebar a:hover {
     background-color: #575757;
 }
@@ -56,13 +61,13 @@ body {
     cursor: pointer;
     background-color: #111;
     color: white;
-    padding: 10px 15px;
+    padding: 40px 30px 30px 30px;
     border: none;
     display: block;
     position: fixed;
     top: 20px;
     left: 20px;
-    z-index: 999;
+    z-index: 1;
 }
 
 h1 {
