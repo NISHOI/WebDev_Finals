@@ -1,13 +1,17 @@
+const sidebar = document.getElementById('sidebar')
+const content = document.querySelector('.content')
+const open_btn = document.querySelector('.open-btn')
+
 function openSidebar() {
-    document.getElementById("sidebar").style.left = "0";
-    document.querySelector(".content").style.marginLeft = "250px";
-    document.querySelector(".open-btn").style.display = "none";
+    sidebar.style.left = "0";
+    content.style.marginLeft = "250px";
+    open_btn.style.display = "none";
 }
 
 function closeSidebar() {
-    document.getElementById("sidebar").style.left = "-250px";
-    document.querySelector(".content").style.marginLeft = "0";
-    document.querySelector(".open-btn").style.display = "block";
+    sidebar.style.left = "-250px";
+    content.style.marginLeft = "0";
+    open_btn.style.display = "block";
 }
 
 
