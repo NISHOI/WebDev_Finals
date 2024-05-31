@@ -11,42 +11,34 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
-
-    <section>
+    <nav>
         <div class="sidebar" id="sidebar">
             <h1>Harmony Haven</h1>
             <a href="#" class="close-btn" onclick="closeSidebar()">X</a>
-            <!-- <a onclick="showPage('page3')"><i class=bi bi-house></i> Home</a>
-            <a onclick="showPage('page3')"><i class=bi bi-search></i> Browse</a>
-            <a onclick="showPage('page3')"><i class=bi bi-music-note-beamed></i> Songs</a> -->
+            <a onclick="showPage('page1')"><i class="bi bi-house"></i> Home</a>
+            <a onclick="showPage('page2')"><i class="bi bi-search"></i> Browse</a>
+            <a onclick="showPage('page3')"><i class="bi bi-music-note-beamed"></i> Songs</a>
         </div>
-    </section>
+    </nav>
+
     <section>
-        <div class="content">
+        <div class="content" id="content">
             <button class="open-btn" onclick="openSidebar()">☰</button>
+            <div id="page1">
+                <h2>Page 1</h2>
+                <p>This is the content of Page 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div id="page2" style="display: none;">
+                <h2>Page 2</h2>
+                <p>This is the content of Page 2. Phasellus non mauris eget lacus rhoncus aliquam.</p>
+            </div>
+            <div id="page3" style="display: none;">
+                <h2>Page 3</h2>
+                <p>This is the content of Page 3. Curabitur nec enim sit amet lectus scelerisque congue vitae in dui.</p>
+            </div>
         </div>
-    </section>
-
-    <section id="page1">
-        <h2>Page 1</h2>
-        <p>This is the content of Page 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </section>
-    
-    <section id="page2" style="display: none;">
-        <h2>Page 2</h2>
-        <p>This is the content of Page 2. Phasellus non mauris eget lacus rhoncus aliquam.</p>
-        <p>This is the content of Page 2. Phasellus non mauris eget lacus rhoncus aliquam.</p>
-
-        <p>This is the content of Page 2. Phasellus non mauris eget lacus rhoncus aliquam.</p>
-
-    </section>
-    
-    
-    <section id="page3" style="display: none;">
-        <h2>Page 3</h2>
-        <p>This is the content of Page 3. Curabitur nec enim sit amet lectus scelerisque congue vitae in dui.</p>
     </section>
 
     <script src="script.js"></script>
-</body> 
+</body>
 </html>
