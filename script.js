@@ -1,35 +1,48 @@
-const sidebar = document.getElementById('sidebar');
-const content = document.querySelector('.content');
-const openBtn = document.querySelector('.open-btn');
+const body = document.querySelector('body'),
+sidebar = body.querySelector('nav'),
+toggle = body.querySelector(".toggle"),
+searchBtn = body.querySelector(".search-box"),
+modeSwitch = body.querySelector(".toggle-switch"),
+modeText = body.querySelector(".mode-text");
 
-function openSidebar() {
-    sidebar.style.left = "0";
-    content.style.marginLeft = "250px";
-    openBtn.style.display = "none";
+
+toggle.addEventListener("click" , () =>{
+sidebar.classList.toggle("close");
+})
+
+searchBtn.addEventListener("click" , () =>{
+sidebar.classList.remove("close");
+})
+
+modeSwitch.addEventListener("click" , () =>{
+body.classList.toggle("dark");
+
+if(body.classList.contains("dark")){
+modeText.innerText = "Light mode";
+}else{
+modeText.innerText = "Dark mode";
+
 }
+});
 
-function closeSidebar() {
-    sidebar.style.left = "-250px";
-    content.style.marginLeft = "0";
-    openBtn.style.display = "block";
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const menuLinks = document.querySelectorAll('.menu-links a');
+    const sections = document.querySelectorAll('section.home');
 
-window.onclick = function(event) {
-    if (!event.target.matches('.open-btn') && !sidebar.contains(event.target) && window.innerWidth <= 768) {
-        closeSidebar();
+    function showPage(pageId) {
+        sections.forEach(section => {
+            section.style.display = 'none';
+        });
+        document.getElementById(`page${pageId}`).style.display = 'block';
     }
-}
 
-function showPage(pageId) {
-    const pages = content.querySelectorAll('div > div');
-    pages.forEach(page => {
-        page.style.display = 'none';
+    menuLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const pageId = link.getAttribute('data-page');
+            showPage(pageId);
+        });
     });
 
-    const selectedPage = document.getElementById(pageId);
-    if (selectedPage) {
-        selectedPage.style.display = 'block';
-    }
-}
-
-showPage('page1');
+    showPage(1);
+});

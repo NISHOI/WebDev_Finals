@@ -2,43 +2,115 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Harmony Haven</title>
-    
+
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <nav>
-        <div class="sidebar" id="sidebar">
-            <h1>Harmony Haven</h1>
-            <a href="#" class="close-btn" onclick="closeSidebar()">X</a>
-            <a onclick="showPage('page1')"><i class="bi bi-house"></i> Home</a>
-            <a onclick="showPage('page2')"><i class="bi bi-search"></i> Browse</a>
-            <a onclick="showPage('page3')"><i class="bi bi-music-note-beamed"></i> Songs</a>
-        </div>
-    </nav>
+<nav class="sidebar close">
+    <header>
+        <div class="image-text">
+            <span class="image">
+                <img src="img/logo.png" alt="">
+            </span>
 
-    <section>
-        <div class="content" id="content">
-            <button class="open-btn" onclick="openSidebar()">☰</button>
-            <div id="page1">
-                <h2>Page 1</h2>
-                <p>This is the content of Page 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-            <div id="page2" style="display: none;">
-                <h2>Page 2</h2>
-                <p>This is the content of Page 2. Phasellus non mauris eget lacus rhoncus aliquam.</p>
-            </div>
-            <div id="page3" style="display: none;">
-                <h2>Page 3</h2>
-                <p>This is the content of Page 3. Curabitur nec enim sit amet lectus scelerisque congue vitae in dui.</p>
+            <div class="text logo-text">
+                <span class="name">Harmony Haven</span>
+                <span class="profession">Music Lover</span>
             </div>
         </div>
-    </section>
 
-    <script src="script.js"></script>
+        <i class='bx bx-chevron-right toggle'></i>
+    </header>
+
+    <div class="menu-bar">
+        <div class="menu">
+
+            <li class="search-box">
+                <i class='bx bx-search icon'></i>
+                <input type="text" placeholder="Search...">
+            </li>
+
+            <ul class="menu-links">
+                <li class="nav-link">
+                    <a href="#" data-page="1">
+                        <i class='bx bx-home-alt icon' ></i>
+                        <span class="text nav-text">Home</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="#" data-page="2">
+                        <i class='bx bx-music icon' ></i>
+                        <span class="text nav-text">Tracks</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="#" data-page="3">
+                        <i class='bx bx-album icon'></i>
+                        <span class="text nav-text">Albums</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="#" data-page="4">
+                        <i class='bx bx-microphone icon' ></i>
+                        <span class="text nav-text">Artists</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="#" data-page="5">
+                        <i class='bx bx-heart icon' ></i>
+                        <span class="text nav-text">Favorites</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bottom-content">
+            <li class="mode">
+                <div class="sun-moon">
+                    <i class='bx bx-moon icon moon'></i>
+                    <i class='bx bx-sun icon sun'></i>
+                </div>
+                <span class="mode-text text">Dark mode</span>
+
+                <div class="toggle-switch">
+                    <span class="switch"></span>
+                </div>
+            </li>
+        </div>
+    </div>
+</nav>
+
+<section class="home" id="page1">
+    <div class="text">Page 1: Home</div>
+</section>
+
+<section class="home" id="page2">
+    <div class="text">Page 2: Tracks</div>
+</section>
+
+<section class="home" id="page3">
+    <div class="text">Page 3: Albums</div>
+</section>
+
+<section class="home" id="page4">
+    <div class="text">Page 4: Artists</div>
+</section>
+
+<section class="home" id="page5">
+    <div class="text">Page 5: Favorites</div>
+</section>
+
+<script src="script.js"></script>
+
 </body>
 </html>
