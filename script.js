@@ -10,9 +10,9 @@ toggle.addEventListener("click" , () =>{
 sidebar.classList.toggle("close");
 })
 
-searchBtn.addEventListener("click" , () =>{
-sidebar.classList.remove("close");
-})
+// searchBtn.addEventListener("click" , () =>{
+// sidebar.classList.remove("close");
+// })
 
 modeSwitch.addEventListener("click" , () =>{
 body.classList.toggle("dark");
@@ -46,4 +46,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     showPage(1);
 });
+const apiKey = 'f00c38e0279b7bc85480c3fe775d518c';
+async function showWeather(){
 
+    try{
+
+        const searchLocation = document.getElementById('search-box').value
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchLocation}&appid=${apiKey}&units=metric`)
+
+        if (!response.ok){
+            throw new Error('Could not fetch resource');
+        }
+        const data = await response.json();
+
+        const weatherDescription = data.weather[0].description;
+        const temperature = data.main.temp;
+        const location = data.name;
+        const wind = data.wind.speed
+
+        const weatherInfo = document.getElementById('weather-info');
+        weatherInfo.innerHTML = `Location: ${location}<br>
+                                 Weather: ${weatherDescription}<br>
+                                 Temperature: ${temperature}°C<br>
+                                 Wind: ${wind} mph`;
+
+        console.log(data);
+
+    }
+    catch(error){
+        console.error(error)
+    }
+}    

@@ -293,6 +293,34 @@ body.dark .switch::before{
     color: var(--text-color);
     padding: 12px 60px;
 }
+.search-container {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 10px;
+
+}
+
+.search-container input {
+    width: 50%;
+    height: 50px;
+    border: 0.5px solid;
+    padding: 10px;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.search-container i{
+    color:#fff;
+}
+
+.search-container button{
+    height: 50px;
+    width: 10%;
+    border: 0.5px solid;
+    cursor: pointer;
+}
 
 .sidebar.close ~ .home{
     left: 78px;
@@ -328,30 +356,37 @@ section.home {
 
 #page1 .widget2-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
+    margin: 10px;
 }
 
 #page1 .widget2 {
     border: 1px solid;
-    width: 30%;
+    width: 50%;
     height: 400px;
+    border-radius: 20px;
+    margin-right: 10px;
 }
 
-#page1 .forcast-container {
+#page1 .forecast-container {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
-    padding-left: 30px;
+    margin-left: 10px;
+}
+.home h1{
+    text-align: center;
+}
+.forecast {
+    width: 30%;
+    height: 300px;
+    border: 1px solid;
+    border-radius: 20px;
 }
 
-.forcast {
-    width: 100px;
-    height: 400px;
-    border: 1px solid;
-}
 
 @media (max-width: 1200px) {
     .home {
@@ -409,7 +444,7 @@ section.home {
         width: 100%;
     }
 
-    #page1 .widget1-container, #page1 .widget2-container, #page1 .forcast-container {
+    #page1 .widget1-container, #page1 .widget2-container, #page1 .forecast-container {
         flex-direction: column;
         align-items: stretch;
     }

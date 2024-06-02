@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="img/logo_image.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <nav class="sidebar close">
@@ -91,9 +92,14 @@
 
 <section class="home" id="page1">
     <div class="text">
+        <div class="search-container">
+            <input type="search" placeholder="Enter Location..." id="search-box"></input>
+            <button type="submit" id="search" onclick="showWeather()" style="border-radius: 10px;">
+            <i class="fa fa-search" aria-hidden="true"></i> 
+        </div>
         <div class="widget1-container">
             <div class="widget1">
-                <img src="#" alt="img">
+                <p id="weather-info"></p>
             </div>
         </div>
         <h1>5-day weather forecast</h1>
@@ -101,20 +107,20 @@
             <div class="widget2">
                 <img src="#" alt="img">
             </div>
-            <div class="forcast-container">
-                <div class="forcast">
+            <div class="forecast-container">
+                <div class="forecast">
                     <img src="#" alt="img">
                 </div>
-                <div class="forcast">
+                <div class="forecast">
                     <img src="#" alt="img">
                 </div>
-                <div class="forcast">
+                <div class="forecast">
                     <img src="#" alt="img">
                 </div>
-                <div class="forcast">
+                <div class="forecast">
                     <img src="#" alt="img">
                 </div>
-                <div class="forcast">
+                <div class="forecast">
                     <img src="#" alt="img">
                 </div>
             </div>
