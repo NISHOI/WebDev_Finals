@@ -193,7 +193,7 @@ body.dark .sidebar header .toggle{
 }
 
 .sidebar li a:hover{
-    background-color: var(--primary-color);
+    background-color: red;
 }
 .sidebar li a:hover .icon,
 .sidebar li a:hover .text{
