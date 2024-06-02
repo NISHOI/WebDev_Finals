@@ -47,30 +47,46 @@ document.addEventListener('DOMContentLoaded', () => {
     showPage(1);
 });
 const apiKey = 'f00c38e0279b7bc85480c3fe775d518c';
-async function showWeather(){
-
-    try{
-
-        const searchLocation = document.getElementById('search-box').value
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchLocation}&appid=${apiKey}&units=metric`)
-        if (!response.ok){
-            throw new Error('Could not fetch resource');
+async function showWeather() {
+    try {
+        const searchLocation = document.getElementById('search-box').value.trim();
+        if (!searchLocation) {
+            throw new Error('Please enter a location.');
         }
+
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchLocation}&appid=${apiKey}&units=metric`);
+
+        if (!response.ok) {
+            if (response.status === 404) {
+                throw new Error('Location not found. Please try another location.');
+            } else if (response.status === 401) {
+                throw new Error('Invalid API key. Please check your API key.');
+            } else {
+                throw new Error('Could not fetch resource. Please try again later.');
+            }
+        }
+
         const data = await response.json();
         const weatherDescription = data.weather[0].description;
         const temperature = data.main.temp;
         const location = data.name;
-        const wind = data.wind.speed
+        const wind = data.wind.speed;
 
         const weatherInfo = document.getElementById('weather-info');
-        weatherInfo.innerHTML = `Location: ${location}<br>
-                                 Weather: ${weatherDescription}<br>
-                                 Temperature: ${temperature}°C<br>
-                                 Wind: ${wind} mph`;
+        weatherInfo.innerHTML = `<strong>Location:</strong> ${location}<br>
+                                <strong>Weather:</strong> ${weatherDescription}<br>
+                                <strong>Temperature:</strong> ${temperature}°C<br>
+                                <strong>Wind:</strong> ${wind} mph`;
+        weatherInfo.style.display = 'block';
         console.log(data);
 
+    } catch (error) {
+        const weatherInfo = document.getElementById('weather-info');
+        weatherInfo.innerHTML = `<div style="padding: 20px; margin-top: 10px; background-color: red; color: white; border-radius: 10px; font-size: 18px; max-width: 300px; justify-content='center' ">
+                                    <strong>Error:</strong> ${error.message}
+                                 </div>`;
+        weatherInfo.style.display = 'block'; 
+        console.error(error);
     }
-    catch(error){
-        console.error(error)
-    }
-}    
+}
+
