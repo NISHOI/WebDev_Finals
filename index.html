@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="img/logo_image.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <nav class="sidebar close">
@@ -30,10 +31,10 @@
     <div class="menu-bar">
         <div class="menu">
 
-            <li class="search-box">
+            <!-- <li class="search-box">
                 <i class='bx bx-search icon'></i>
                 <input type="text" placeholder="Search...">
-            </li>
+            </li> -->
 
             <ul class="menu-links">
                 <li class="nav-link">
@@ -91,31 +92,38 @@
 
 <section class="home" id="page1">
     <div class="text">
+
+        <div class="search-container">
+            <input type="search" placeholder="Enter Location..." id="search-box"></input>
+            <button type="submit" id="search" onclick="showWeather()">
+            <i class="fa fa-search" aria-hidden="true"></i> 
+        </div>
+
         <div class="widget1-container">
             <div class="widget1">
-                <img src="#" alt="img">
+                <p id="weather-info"></p>
             </div>
-        </div>
-        <h1>5-day weather forecast</h1>
-        <div class="widget2-container">
-            <div class="widget2">
-                <img src="#" alt="img">
+
+            <div class="widget2-container">
+                <div class="widget2 first-widget">
+                    <img src="#" alt="img">
             </div>
-            <div class="forcast-container">
-                <div class="forcast">
-                    <img src="#" alt="img">
-                </div>
-                <div class="forcast">
-                    <img src="#" alt="img">
-                </div>
-                <div class="forcast">
-                    <img src="#" alt="img">
-                </div>
-                <div class="forcast">
-                    <img src="#" alt="img">
-                </div>
-                <div class="forcast">
-                    <img src="#" alt="img">
+                <div class="forcast-container">
+                    <div class="forcast">
+                        <img src="#" alt="img">
+                    </div>
+                    <div class="forcast">
+                        <img src="#" alt="img">
+                    </div>
+                    <div class="forcast">
+                        <img src="#" alt="img">
+                    </div>
+                    <div class="forcast">
+                        <img src="#" alt="img">
+                    </div>
+                    <div class="forcast">
+                        <img src="#" alt="img">
+                    </div>
                 </div>
             </div>
         </div>
