@@ -31,10 +31,10 @@
     <div class="menu-bar">
         <div class="menu">
 
-            <li class="search-box">
+            <!-- <li class="search-box">
                 <i class='bx bx-search icon'></i>
                 <input type="text" placeholder="Search...">
-            </li>
+            </li> -->
 
             <ul class="menu-links">
                 <li class="nav-link">
@@ -92,20 +92,21 @@
 
 <section class="home" id="page1">
     <div class="text">
+
         <div class="search-container">
             <input type="search" placeholder="Enter Location..." id="search-box"></input>
             <button type="submit" id="search" onclick="showWeather()" style="border-radius: 10px;">
             <i class="fa fa-search" aria-hidden="true"></i> 
         </div>
+
         <div class="widget1-container">
             <div class="widget1">
                 <p id="weather-info"></p>
             </div>
-        </div>
-        <h1>5-day weather forecast</h1>
-        <div class="widget2-container">
-            <div class="widget2">
-                <img src="#" alt="img">
+
+            <div class="widget2-container">
+                <div class="widget2 first-widget">
+                    <img src="#" alt="img">
             </div>
             <div class="forecast-container">
                 <div class="forecast">
@@ -122,6 +123,7 @@
                 </div>
                 <div class="forecast">
                     <img src="#" alt="img">
+
                 </div>
             </div>
         </div>

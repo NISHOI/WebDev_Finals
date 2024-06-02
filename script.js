@@ -53,12 +53,10 @@ async function showWeather(){
 
         const searchLocation = document.getElementById('search-box').value
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchLocation}&appid=${apiKey}&units=metric`)
-
         if (!response.ok){
             throw new Error('Could not fetch resource');
         }
         const data = await response.json();
-
         const weatherDescription = data.weather[0].description;
         const temperature = data.main.temp;
         const location = data.name;
@@ -69,7 +67,6 @@ async function showWeather(){
                                  Weather: ${weatherDescription}<br>
                                  Temperature: ${temperature}°C<br>
                                  Wind: ${wind} mph`;
-
         console.log(data);
 
     }
