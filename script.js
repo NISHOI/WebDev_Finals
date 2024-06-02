@@ -90,3 +90,45 @@ async function showWeather() {
     }
 }
 
+async function fivedayForecast(city) {
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+    
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (response.ok) {
+            const forecastContainer = document.querySelector('.forecast-container');
+            forecastContainer.innerHTML = ''; 
+
+            for (let i = 0; i < data.list.length; i += 8) { 
+                const forecast = data.list[i];
+                const date = new Date(forecast.dt_txt);
+                const day = date.toLocaleDateString('en-US', { weekday: 'long' });
+                const temp = forecast.main.temp;
+                const windSpeed = forecast.wind.speed;
+                const weatherDescription = forecast.weather[0].description;
+
+                const forecastEl = document.createElement('div');
+                forecastEl.classList.add('forecast');
+                forecastEl.innerHTML = `
+                    <p>${day}</p>
+                    <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png" alt="Weather icon">
+                    <p>Wind: ${windSpeed} m/s</p>
+                    <p>${weatherDescription}</p>
+                    <p>Temperature: ${temp} °C</p>
+                `;
+
+                forecastContainer.appendChild(forecastEl);
+            }
+        } else {
+            alert('City not found');
+        }
+    } catch (error) {
+        console.error('Error fetching the weather data', error);
+    }
+}
+document.getElementById('search').addEventListener('click', () => {
+    const city = document.getElementById('search-box').value;
+    fivedayForecast(city);
+});
