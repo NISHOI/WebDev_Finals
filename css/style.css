@@ -9,10 +9,11 @@
 :root{
     --body-color: #E4E9F7;
     --sidebar-color: #FFF;
-    --primary-color: #695CFE;
+    --primary-color: #fe5c5c;
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDD;
-    --text-color: #707070;
+    --text-color: #000000;
+    
 
     --tran-03: all 0.2s ease;
     --tran-03: all 0.3s ease;
@@ -27,18 +28,31 @@ body{
 }
 
 ::selection{
-    background-color: red;
+    background-color: rgb(245, 77, 77);
     color: #fff;
 }
 
 body.dark{
     --body-color: #18191a;
-    --sidebar-color: #242526;
+    --sidebar-color: #242424;
     --primary-color: #3a3b3c;
     --primary-color-light: #3a3b3c;
     --toggle-color: #fff;
-    --text-color: #ccc;
+    --text-color: #000000;
+    --background-color:#a19f9f;
+    
 }
+body.dark h1{
+    color: white;
+}
+
+body.dark .sidebar span{
+    color: white;
+}
+body.dark .sidebar i{
+    color: white;
+}
+
 
 .sidebar{
     position: fixed;
@@ -360,6 +374,7 @@ section.home {
     border-radius: 20px;
     align-items: center;
     justify-content: center;
+    
 }
 
 #page1 .widget1 p{
@@ -395,6 +410,8 @@ section.home {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
+
 }
 
 .widget1-container #weather-info{
