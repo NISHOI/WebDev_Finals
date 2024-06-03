@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "bootstrap": "^5.3.3",
-    "newsapi": "^2.4.1"
+    "newsapi": "^2.4.1",
+    "node-fetch": "^3.3.2",
+    "ws": "^8.17.0"
   }
 }
