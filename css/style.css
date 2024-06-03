@@ -13,8 +13,6 @@
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDD;
     --text-color: #000000;
-    
-
     --tran-03: all 0.2s ease;
     --tran-03: all 0.3s ease;
     --tran-04: all 0.3s ease;
@@ -116,6 +114,7 @@ body.dark .widget1 {
     white-space: nowrap;
     opacity: 1;
 }
+
 .sidebar.close .text{
     opacity: 0;
 }
@@ -128,10 +127,12 @@ body.dark .widget1 {
     display: flex;
     align-items: center;
 }
+
 .sidebar header .logo-text{
     display: flex;
     flex-direction: column;
 }
+
 header .image-text .name {
     margin-top: 2px;
     font-size: 18px;
@@ -301,6 +302,10 @@ body.dark .switch::before{
     left: 20px;
 }
 
+h1 {
+    padding: 20px;
+}
+
 .home{
     position: absolute;
     top: 0;
@@ -353,7 +358,7 @@ section.home {
     width: 500px;
     height: 50px;
     border: none;
-    padding: 10px;
+    padding: 20px;
     border-radius: 50px;
     margin-right: 10px;
 }
@@ -489,10 +494,13 @@ section.home {
         width: 100%;
     }
 
-    #page1 .widget1-container, #page1 .widget1-container, #page1 .forecast-container {
+    #page1 .widget1-container, 
+    #page1 .widget1-container, 
+    #page1 .forecast-container {
         flex-direction: column;
         align-items: stretch;
     }
+
     .sidebar .menu-bar {
         height: auto;
         overflow-y: visible;

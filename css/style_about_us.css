@@ -2,22 +2,62 @@
     margin: 40px;
     text-align: center;
 }
+
 .home .text h2{
     text-align: center;
 }
+
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+body.dark .about-container {
+    background-color: #343131;
+    color: white;
+}
+
+body.dark .member {
+    background-color: #343131;
+    color: white;
+}
+
+body.dark .member h3 {
+    color: white;
+}
+
+body.dark .member p {
+    color: white;
+}
+
+.about-container {
+    border: 1px solid;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin: 50px 0;
+    font-size: 25px;
+}
+
 .team {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    gap: 20px;
 }
 
 .member {
     background-color: #ffffff;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     overflow: hidden; 
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -29,12 +69,19 @@
 .member img {
     max-width: 300px; 
     height: 300px;
-    display: block; 
     border-radius: 50px;
+    margin-bottom: 10px;
+}
+
+.member:nth-child(4) img {
+    max-width: 300px; 
+    height: 300px;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    padding-top: 20px;
 }
 
 .member h3 {
-    margin-top: 0;
     color: #333;
     font-size: 1em;
     margin-bottom: 10px;
@@ -43,6 +90,7 @@
 
 .member p {
     color: #555;
-    line-height: 1.5;
+    font-size: 20px;
     text-align: center;
+    padding: 0px 20px ;
 }

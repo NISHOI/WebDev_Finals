@@ -9,21 +9,29 @@ document.addEventListener('DOMContentLoaded', () => {
         sidebar.classList.toggle("close");
     });
 
-
     const forecastCards = document.querySelectorAll('.forecast');
-    
-    const widget1 = document.getElementById('widget1')
-
+    const newsCards = document.querySelectorAll('.news-card');
+    const about = document.querySelectorAll('.about-container')
+    const memberCards = document.querySelectorAll('.members')
+   
     modeSwitch.addEventListener("click", () => {
         body.classList.toggle("dark");
-    
+        
         forecastCards.forEach(card => {
             card.classList.toggle("dark");
         });
+    
+        newsCards.forEach(card => {
+            card.classList.toggle("dark");
+        });
+
+        memberCards.forEach(member => {
+            member.classList.toggle('dark')
+        })
         
-        if (widget1.classList.contains('dark'))
+        if (about.classList.contains("dark")) {
             modeText.innerText = "Light mode";
-        else {
+        } else {
             modeText.innerText = "Dark mode";
         }
 
@@ -34,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-
     const menuLinks = document.querySelectorAll('.menu-links a');
     const sections = document.querySelectorAll('section.home');
 
