@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await response.json();
             const weatherDescription = data.weather[0].description;
-            const temperature = data.main.temp;Manila
+            const temperature = data.main.temp;
             const location = data.name;
             const wind = data.wind.speed;
 
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showWeather(city);
     });
 
-    // Initialize with Mabalacat weather and forecast
-    fivedayForecast('Manila');
-    showWeather('Manila');
+
+    fivedayForecast('Mabalacat');
+    showWeather('Mabalacat');
 });
