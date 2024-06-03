@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.querySelector('body');
     const sidebar = body.querySelector('nav');
     const toggle = body.querySelector(".toggle");
-    const searchBtn = body.querySelector(".search-box");
     const modeSwitch = body.querySelector(".toggle-switch");
     const modeText = body.querySelector(".mode-text");
 
@@ -10,8 +9,23 @@ document.addEventListener('DOMContentLoaded', () => {
         sidebar.classList.toggle("close");
     });
 
+
+    const forecastCards = document.querySelectorAll('.forecast');
+    
+    const widget1 = document.getElementById('widget1')
+
     modeSwitch.addEventListener("click", () => {
         body.classList.toggle("dark");
+    
+        forecastCards.forEach(card => {
+            card.classList.toggle("dark");
+        });
+        
+        if (widget1.classList.contains('dark'))
+            modeText.innerText = "Light mode";
+        else {
+            modeText.innerText = "Dark mode";
+        }
 
         if (body.classList.contains("dark")) {
             modeText.innerText = "Light mode";
@@ -19,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modeText.innerText = "Dark mode";
         }
     });
+    
 
     const menuLinks = document.querySelectorAll('.menu-links a');
     const sections = document.querySelectorAll('section.home');
