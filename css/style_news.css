@@ -1,5 +1,5 @@
 .container {
-    width: 80%;
+    width: 90%;
     margin: auto;
     overflow: hidden;
 }
@@ -19,10 +19,15 @@ h1 {
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
-    width: 30%;
+    width: 400px;
     margin-bottom: 20px;
+    margin-left: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.5s ease;
+    transition: transform 0.5s ease;
+
+}.news-card:hover {
+    transform: translateY(-20px);
 }
 
 .news-card:hover {

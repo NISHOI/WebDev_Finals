@@ -1,0 +1,48 @@
+.home .text .About{
+    margin: 40px;
+    text-align: justify;
+}
+.home .text h2{
+    text-align: center;
+}
+.team {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.member {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    overflow: hidden; 
+    justify-content: center;
+    align-items: center;
+}
+
+.member:hover {
+    transform: translateY(-20px);
+}
+
+.member img {
+    max-width: 300px; 
+    height: 300px;
+    display: block; 
+    border-radius: 50px;
+}
+
+.member h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.member p {
+    color: #555;
+    line-height: 1.5;
+    text-align: left;
+}
