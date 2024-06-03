@@ -318,11 +318,14 @@ section.home {
     width: 100%;
     margin: 10px;
 }
-
+.search-container #search{
+    width: 70px;
+    border: none;
+}
 .search-container input {
-    width: 50%;
+    width: 500px;
     height: 50px;
-    border: 0.5px solid;
+    border: none;
     padding: 10px;
     border-radius: 50px;
     margin-right: 10px;
@@ -347,36 +350,20 @@ section.home {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 100%;
 }
 
 #page1 .widget1 {
-    border: 1px solid;
-    width: 100%;
-    height: 200px;
-    margin: 20px 0px 20px;
+    border: 2px solid;
+    margin: 50px;
+    width: 500px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
 #page1 .widget1 p{
     padding: 10px;
-}
-
-#page1 .widget2-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    margin: 10px;
-}
-
-#page1 .widget2 {
-    border: 1px solid;
-    width: 50%;
-    height: 400px;
-    border-radius: 20px;
-}
-
-#page1 .widget2-container .widget2{
-    width: 400px;
 }
 
 #page1 .forecast-container {
@@ -388,7 +375,7 @@ section.home {
 }
 
 #page1 .widget1-container .widget1{
-    width: 100%;
+    width: 500px;
 }
 
 .home h1{
@@ -396,9 +383,9 @@ section.home {
 }
 
 .forecast {
-    width: 30%;
+    width: 350px;
     height: 300px;
-    border: 1px solid;
+    border: 2px solid;
     border-radius: 20px;
     margin: 10px;
     text-align: center;
@@ -412,8 +399,7 @@ section.home {
 
 .widget1-container #weather-info{
     display: flex;
-    width: 100%;
-    color: black;
+    width: 500px;
 }
 
 @media (max-width: 1200px) {
@@ -426,10 +412,6 @@ section.home {
         left: 70px;
         width: calc(100% - 70px);
     }
-
-    #page1 .widget2 {
-        width: calc(50% - 20px);
-    }
 }
 
 @media (max-width: 768px) {
@@ -441,10 +423,6 @@ section.home {
     .sidebar.close ~ .home {
         left: 60px;
         width: calc(100% - 60px);
-    }
-
-    #page1 .widget2 {
-        width: 100%;
     }
 }
 
@@ -472,16 +450,10 @@ section.home {
         width: 100%;
     }
 
-    #page1 .widget1-container, #page1 .widget2-container, #page1 .forecast-container {
+    #page1 .widget1-container, #page1 .widget1-container, #page1 .forecast-container {
         flex-direction: column;
         align-items: stretch;
     }
-
-    #page1 .widget2 {
-        width: 100%; 
-        height: auto;
-    }
-
     .sidebar .menu-bar {
         height: auto;
         overflow-y: visible;
