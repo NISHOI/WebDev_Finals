@@ -126,6 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    fivedayForecast('Mabalacat');
-    showWeather('Mabalacat');
+    fivedayForecast('manila');
+    showWeather('manila');
 });
