@@ -62,28 +62,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     showPage(1);
 
-    const newsapiKey = '244fb65f098b4611b60f67b272814fc2';
+    // ---------------------------------------------------------------------------------------------------------------//
+    let ws;
 
-    async function fetchNews(search) {
-        const url = `https://newsapi.org/v2/everything?q=${search}&apiKey=${newsapiKey}`;
+    function initializeWebSocket() {
+        ws = new WebSocket('ws://localhost:8080');
 
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                const data = await response.json();
-                throw new Error(data.message);
-            }
-            const data = await response.json();
-            displayNews(data.articles);
-        } catch (error) {
-            console.error('Error fetching news:', error);
-            alert('Error fetching news: ' + error.message);
-        }
+        ws.onopen = () => {
+            console.log('Connected to WebSocket server');
+            ws.send('top news ph');
+        };
+
+        ws.onmessage = event => {
+            const articles = JSON.parse(event.data);
+            displayNews(articles);
+        };
+
+        ws.onerror = error => {
+            console.error('WebSocket error:', error);
+        };
+
+        ws.onclose = () => {
+            console.log('WebSocket connection closed');
+        };
     }
 
     function displayNews(articles) {
         const newsContainer = document.getElementById('news-container');
         newsContainer.innerHTML = '';
+
+        if (articles.error) {
+            alert('Error fetching news: ' + articles.error);
+            return;
+        }
 
         const validArticles = articles.filter(article => article.urlToImage && article.description);
 
@@ -122,7 +133,6 @@ document.addEventListener('DOMContentLoaded', () => {
         newsContainer.appendChild(fragment);
     }
 
-    // Search Functionality
     const searchForm = document.getElementById('search-form');
     const searchInput = document.getElementById('news_input');
 
@@ -130,13 +140,15 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
         const searchQuery = searchInput.value.trim();
         if (searchQuery) {
-            fetchNews(searchQuery);
+            if (ws.readyState === WebSocket.OPEN) {
+                ws.send(searchQuery);
+            } else {
+                alert('WebSocket connection is not open');
+            }
         }
     });
 
-    // Initialize with a default search term
-    fetchNews('latest news');
-
+    initializeWebSocket();
     // ---------------------------------------------------------------------------------------------------------------//
 
     const apiKey = 'f00c38e0279b7bc85480c3fe775d518c';
@@ -173,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                      <img src="img/wind-icon.png" alt="Wind icon" style="width: 40px; vertical-align: middle; margin-right: 5px;">
                                      <strong>Wind:</strong> ${wind} m/s`;
             weatherInfo.style.display = 'block';
-            console.log(data);
+            // console.log(data);
     
         } catch (error) {
             const weatherInfo = document.getElementById('weather-info');
