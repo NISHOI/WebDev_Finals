@@ -117,10 +117,17 @@
 
 <section class="home" id="page2">
     <div class="container">
-        <h1>Top Headlines</h1>
+        <h1 class="news-header">Top Headlines</h1>
+        <div class="news-search-container">
+        <form id="search-form">
+            <input type="text" id="news_input" placeholder="Search for news..." required></input>
+            <button type="submit">
+            <i class="fa fa-search" aria-hidden="true" ></i>
+        </form>
+        </div>
         <div id="news-container" class="news-container"></div>
     </div>
-</section>
+</section> 
 
 <section class="home" id="page3">
     <div class="text">Weather Today</div>

@@ -55,57 +55,82 @@ document.addEventListener('DOMContentLoaded', () => {
 
     showPage(1);
 
-    const newsapiKey = '0621a8d1e5094702bed155c2c447c897';
-    const url = `https://newsapi.org/v2/everything?q=charles&from=2024-06-02&to=2024-06-03&apiKey=${newsapiKey}`;  // Add country parameter
+    const newsapiKey = '244fb65f098b4611b60f67b272814fc2';
 
-    async function fetchNews() {
+    async function fetchNews(search) {
+        const url = `https://newsapi.org/v2/everything?q=${search}&apiKey=${newsapiKey}`;
+
         try {
             const response = await fetch(url);
-            const data = await response.json();
-
-            if (response.ok) {
-                displayNews(data.articles);
-            } else {
-                console.error('Error fetching news:', data.message);
+            if (!response.ok) {
+                const data = await response.json();
+                throw new Error(data.message);
             }
+            const data = await response.json();
+            displayNews(data.articles);
         } catch (error) {
             console.error('Error fetching news:', error);
+            alert('Error fetching news: ' + error.message);
         }
     }
-    // news
-    async function displayNews(articles) {
+
+    function displayNews(articles) {
         const newsContainer = document.getElementById('news-container');
         newsContainer.innerHTML = '';
 
-        articles.forEach(article => {
-            if (article.urlToImage && article.description) {
-                const newsCard = document.createElement('div');
-                newsCard.classList.add('news-card');
+        const validArticles = articles.filter(article => article.urlToImage && article.description);
 
-                const newsImage = document.createElement('img');
-                newsImage.src = article.urlToImage;
-                newsCard.appendChild(newsImage);
+        if (validArticles.length === 0) {
+            alert('No articles found for this search.');
+            return;
+        }
 
-                const newsTitle = document.createElement('h3');
-                newsTitle.textContent = article.title;
-                newsCard.appendChild(newsTitle);
+        const fragment = document.createDocumentFragment();
+        validArticles.forEach(article => {
+            const newsCard = document.createElement('div');
+            newsCard.classList.add('news-card');
 
-                const newsDescription = document.createElement('p');
-                newsDescription.textContent = article.description;
-                newsCard.appendChild(newsDescription);
+            const newsImage = document.createElement('img');
+            newsImage.src = article.urlToImage;
+            newsImage.alt = article.title;
+            newsCard.appendChild(newsImage);
 
-                const newsLink = document.createElement('a');
-                newsLink.href = article.url;
-                newsLink.textContent = 'Read More';
-                newsLink.target = '_blank';
-                newsCard.appendChild(newsLink);
+            const newsTitle = document.createElement('h3');
+            newsTitle.textContent = article.title;
+            newsCard.appendChild(newsTitle);
 
-                newsContainer.appendChild(newsCard);
-            }
+            const newsDescription = document.createElement('p');
+            newsDescription.textContent = article.description;
+            newsCard.appendChild(newsDescription);
+
+            const newsLink = document.createElement('a');
+            newsLink.href = article.url;
+            newsLink.textContent = 'Read More';
+            newsLink.target = '_blank';
+            newsCard.appendChild(newsLink);
+
+            fragment.appendChild(newsCard);
         });
+
+        newsContainer.appendChild(fragment);
     }
 
-    fetchNews();
+    // Search Functionality
+    const searchForm = document.getElementById('search-form');
+    const searchInput = document.getElementById('news_input');
+
+    searchForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const searchQuery = searchInput.value.trim();
+        if (searchQuery) {
+            fetchNews(searchQuery);
+        }
+    });
+
+    // Initialize with a default search term
+    fetchNews('latest news');
+
+    // ---------------------------------------------------------------------------------------------------------------//
 
     const apiKey = 'f00c38e0279b7bc85480c3fe775d518c';
 

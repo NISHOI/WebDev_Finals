@@ -4,10 +4,10 @@
     overflow: hidden;
 }
 
-h1 {
+/* h1 {
     text-align: center;
     margin: 20px 0;
-}
+} */
 
 .news-container {
     display: flex;
@@ -62,4 +62,41 @@ h1 {
 
 .news-card a:hover {
     background: #555;
+}
+
+.news-search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 10px;
+}
+
+.news-search-container input {
+    flex: 1;
+    height: 50px;
+    width: 500px;
+    border: none;
+    padding: 10px;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+.news-search-container i{
+    color:#fff;
+    font-size: 20px;
+}
+
+.news-search-container button {
+    height: 50px;
+    width: 70px;
+    border: 0.5px;
+    cursor: pointer;
+    background-color: red;
+    border-radius: 50px;
+}
+.news-header{
+    text-align: center;
+    margin: 20px 0;
+    font-size: 3em;
 }
