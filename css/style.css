@@ -379,53 +379,52 @@ section.home {
 
 #page1 .widget1-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    justify-content: space-evenly;
     width: 100%;
+    flex-wrap: wrap;
 }
 
 #page1 .widget1 {
     border: 2px solid;
-    margin: 50px;
-    width: 500px;
+    width: 450px;
+    height: auto;
     border-radius: 20px;
     align-items: center;
     justify-content: center;
+    display: flex;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    flex-wrap: wrap;
+    margin: 30px;
 }
+
 
 #page1 .widget1 p{
     padding: 10px;
 }
 
 #page1 .widget1:hover {
-    transform: scale(1.1);
+    transform: scale(1.01);
 }
 
 #page1 .forecast-container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    margin-left: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 250px);
+    grid-template-rows: repeat(2, 250px);
+    grid-gap: 10px;
+    padding: 30px 0;
 }
 
-#page1 .widget1-container .widget1{
-    width: 500px;
-}
 
 .home h1{
     text-align: center;
 }
 
 .forecast {
-    width: 350px;
-    height: 300px;
+    width: 100%;
+    height: 240px;
     border: 2px solid;
     border-radius: 20px;
-    margin: 10px;
     text-align: center;
     font-size: 20px;
     overflow: hidden;
@@ -435,6 +434,7 @@ section.home {
     flex-direction: column;
     transition: all 0.2s ease-in;
     cursor: pointer;
+    background-color: #f0f3fa;
 }
 
 .forecast:hover {
@@ -504,5 +504,18 @@ section.home {
     .sidebar .menu-bar {
         height: auto;
         overflow-y: visible;
+    }
+}
+
+@media (max-width: 800px) {
+    .forecast:last-child {
+        grid-column: span 1; 
+    }
+}
+
+@media (max-width: 400px) {
+    .forecast {
+        width: 100%; 
+        margin: 5px 0; 
     }
 }

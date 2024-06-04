@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const forecastContainer = document.querySelector('.forecast-container');
                 forecastContainer.innerHTML = '';
 
-                for (let i = 0; i < data.list.length; i += 8) {
+                for (let i = 1; i < data.list.length; i += 7) {
                     const forecast = data.list[i];
                     const date = new Date(forecast.dt_txt);
                     const day = date.toLocaleDateString('en-US', { weekday: 'long' });
