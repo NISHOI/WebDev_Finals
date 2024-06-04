@@ -1,5 +1,5 @@
 <h1 align="center">
-  Hi there! We are Group #
+  Hi there! We are Students of BS CpE 2E
 </h1>
 
 # About this Project
@@ -38,7 +38,6 @@
   <li>Open Integrated Terminal</li>
   <li>Type Node js_server in the Integrated Terminal</li>
   <li><a href="https://nishoi.github.io/WebDev_Finals/">Click this link to Open Pluma News</a></li>
-  <li>Testing</li>
 </ul>
 
 #
