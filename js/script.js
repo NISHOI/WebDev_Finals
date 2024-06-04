@@ -50,6 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
             section.style.display = 'none';
         });
         document.getElementById(`page${pageId}`).style.display = 'block';
+
+
+        if (pageId === 3) {
+            initializeMap(); 
+        }
     }
 
     menuLinks.forEach(link => {
@@ -61,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     showPage(1);
-
     // ---------------------------------------------------------------------------------------------------------------//
     let ws;
 
@@ -242,6 +246,43 @@ document.addEventListener('DOMContentLoaded', () => {
         showWeather(city);
     });
 
+
+
+
+    // ---------------------------------------------------------------------------------------------------------------//
+
+
+    async function initializeMap() {
+        const map = L.map('map').setView([12.8797, 121.774], 6);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        const createTileLayer = (layerName) => L.tileLayer(
+            `https://tile.openweathermap.org/map/${layerName}/{z}/{x}/{y}.png?appid=${apiKey}`, {
+                attribution: '&copy; <a href="https://openweathermap.org/">OpenWeatherMap</a>',
+                opacity: 0.5,
+                errorTileUrl: 'https://via.placeholder.com/256?text=Tile+Not+Available'
+            }
+        );
+
+        const tempLayer = createTileLayer('temp_new');
+        const precipLayer = createTileLayer('precipitation_new');
+        const windLayer = createTileLayer('wind_new');
+        const cloudsLayer = createTileLayer('clouds_new');
+
+        const baseMaps = {
+            "Temperature": tempLayer,
+            "Precipitation": precipLayer,
+            "Wind": windLayer,
+            "Clouds": cloudsLayer
+        };
+
+        L.control.layers(baseMaps).addTo(map);
+
+        tempLayer.addTo(map);
+    }
 
     fivedayForecast('manila');
     showWeather('manila');
