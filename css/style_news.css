@@ -126,3 +126,11 @@ body.dark .news-card button:hover {
     margin: 20px 0;
     font-size: 3em;
 }
+
+#mapcontainer{
+    height: 100%;
+}
+#map {
+    width: 100%;
+    height: 100%;
+}
