@@ -286,4 +286,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fivedayForecast('manila');
     showWeather('manila');
+    initializeMap();
 });
