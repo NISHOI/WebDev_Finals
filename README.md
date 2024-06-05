@@ -36,7 +36,7 @@
 <ul>
   <li>First git pull or request pull to get access of the code</li>
   <li>Open Integrated Terminal</li>
-  <li>Type Node js_server in the Integrated Terminal</li>
+  <li>Type Node server.js in the Integrated Terminal of the server folder</li>
   <li><a href="https://nishoi.github.io/WebDev_Finals/">Click this link to Open Pluma News</a></li>
 </ul>
 
